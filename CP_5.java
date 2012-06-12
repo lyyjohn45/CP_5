@@ -49,8 +49,36 @@ public class CP_5 {
 
 	public static void main(String[] args) {
 		
-		String result = toBinary("2.33");
-		System.out.print(result);
+		//String result = toBinary("2.33");
+		//System.out.print(result);
+		
+		//5.3 brute force
+		int num = 5;
+		int target = countOnes(num);
+		int above = num + 1;
+		while(target != countOnes(above))
+		{
+			above++;
+		}
+		System.out.print(above);
+	}
+	
+	public static int countOnes(int num)
+	{
+		int count = 0;
+		int marsk = 1;
+		
+		for(int i = 0; i < 32; i++)
+		{
+			if(!((num & marsk) == 0))
+			{
+				count++;
+			}
+			
+			marsk = marsk << 1;
+		}
+		
+		return count;
 	}
 
 }
